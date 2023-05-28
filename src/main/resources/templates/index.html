@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1><b>Bandas de Rock/Metal</b></h1>
+<hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Banda</th>
+                <th>Pais</th>
+                <th>Genero</th>
+                <th>Quantidade de Shows</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="banda=${bandas}">
+                <td th:text="${banda.pais}">País</td>
+                <td th:text="${banda.genero}">Genero</td>
+                <td th:text="${banda.showsAno}">Shows</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
