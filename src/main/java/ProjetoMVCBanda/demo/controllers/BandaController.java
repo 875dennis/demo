@@ -1,24 +1,18 @@
 package ProjetoMVCBanda.demo.controllers;
 
 import ProjetoMVCBanda.demo.models.Banda;
-import org.springframework.boot.autoconfigure.quartz.QuartzTransactionManager;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
-@RestController
-@QuartzTransactionManager
-@RequestMapping("/banda")
+@RequestMapping("/bandas")
 public class BandaController {
 
-    private static final List<Banda> bandas = new ArrayList<Banda>();
+    private List<Banda> bandas = new ArrayList<Banda>();
 
     public BandaController(){
         bandas.add(new Banda("Iron Maiden","Inglaterra","Heavy Metal",250));
@@ -32,9 +26,9 @@ public class BandaController {
     }
 
     @GetMapping
-    public String getBanda(Model model){
-        model.addAttribute("banda", bandas);
-        return "bandas";
+    public String getBanda(Model model)
+    {
+        model.addAttribute("bandas", this.bandas);
+        return "index";
     }
-
 }

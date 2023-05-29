@@ -18,7 +18,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="banda=${bandas}">
+            <tr th:each="banda:${bandas}">
+                <td th:text="${banda.nome}">País</td>
                 <td th:text="${banda.pais}">País</td>
                 <td th:text="${banda.genero}">Genero</td>
                 <td th:text="${banda.showsAno}">Shows</td>
